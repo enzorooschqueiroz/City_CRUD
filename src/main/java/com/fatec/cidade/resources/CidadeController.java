@@ -4,6 +4,7 @@ package com.fatec.cidade.resources;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,13 +37,15 @@ public class CidadeController {
     }
 
     @DeleteMapping("{id}")
-    public void deleteCidadeById(@PathVariable int id){
+    public ResponseEntity <Void> deleteCidadeById(@PathVariable int id){
         this.cidadeService.deleteCidadeById(id);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("{id}")
-    public void update(@PathVariable int id, @Validated @RequestBody Cidade cidade){
+    public ResponseEntity <Void> update(@PathVariable int id, @Validated @RequestBody Cidade cidade){
         this.cidadeService.update(id, cidade);
+        return ResponseEntity.ok().build();
     }
     
 }
