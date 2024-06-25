@@ -38,6 +38,14 @@ public class CidadeService {
         }catch(Exception e){
             throw new EntityNotFoundException("Cidade Não Cadastrada");
         }
-
         }
-}
+
+        public void deleteCidadeById (int id){
+            if (this.cidadeRepository.existsById(id)){
+                this.cidadeRepository.deleteById(id);
+
+            }else{
+                throw new EntityNotFoundException("Aluno Não Cadastrado");
+            }
+        }
+    }
