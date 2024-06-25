@@ -26,4 +26,18 @@ public class CidadeService {
         );
     }
     
+    public void update (int id, Cidade cidade){
+        try{
+            Cidade aux = cidadeRepository.getReferenceById(id);
+            aux.setNome(cidade.getNome());
+            aux.setEstado(cidade.getEstado());
+            aux.setPop(cidade.getPop());
+            aux.setPib(cidade.getPib());
+            this.cidadeRepository.save(aux);
+
+        }catch(Exception e){
+            throw new EntityNotFoundException("Cidade Não Cadastrada");
+        }
+
+        }
 }

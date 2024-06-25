@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,6 +31,11 @@ public class CidadeController {
     public Cidade getCidadeById(@PathVariable int id){
         return cidadeService.getCidadeById(id);
       
+    }
+
+    @PutMapping("{id}")
+    public void update(@PathVariable int id, @RequestBody Cidade cidade){
+        this.cidadeService.update(id, cidade);
     }
     
 }
