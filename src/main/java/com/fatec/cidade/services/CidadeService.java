@@ -45,7 +45,7 @@ public class CidadeService {
                 this.cidadeRepository.deleteById(id);
 
             }else{
-                throw new EntityNotFoundException("Aluno Não Cadastrado");
+                throw new EntityNotFoundException("Cidade Não Cadastrada");
             }
         }
     }
